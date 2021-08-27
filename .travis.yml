@@ -22,6 +22,5 @@ deploy:
   bucket_path: "react-app-docker" # 存放 code 的 S3 的名稱
   on:
     branch: master # 只有當 code push 到 master 分支上時才執行部署
-  access_key_id: $AWS_ACCESS_KEY # 加入連線 AWS 所需的金鑰
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+  access_key_id: "$AWS_ACCESS_KEY" # 加入連線 AWS 所需的金鑰
+  secret_access_key: "$AWS_SECRET_KEY"

@@ -1,0 +1,15 @@
+sudo: required # 跑 docker 需要最高權限
+
+# step1. Tell Travis we need a copy of docker running
+services:
+  - docker
+
+# step2. Build our image using Dockerfile.dev
+before_install:
+  - docker build -t ruru0403/react-docker-app -f Dockerfile.dev .
+
+# step3. Tell Travis how to run test suite
+script: # 所有要執行的指令
+  - docker run -e CI=true ruru0403/react-docker-app npm run test
+
+# step4. Tell travis how to deploy our code to AWS
